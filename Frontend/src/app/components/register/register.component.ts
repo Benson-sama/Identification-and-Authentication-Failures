@@ -69,6 +69,21 @@ export class RegisterComponent {
       console.log("Credentials cannot be empty!");
       return;
     }
+    else if (this.credentials.password.length < 10) {
+      Swal.fire('Error', 'Password must be at least 10 characters long!', 'error');
+      console.log("Password must be at least 10 characters long!");
+      return;
+    }
+    else if (!/\d/.test(this.credentials.password)) {
+      Swal.fire('Error', 'Password must contain at least one number!', 'error');
+      console.log("Password must contain at least one number!");
+      return;
+    }
+    else if (!/[A-Z]/.test(this.credentials.password)) {
+      Swal.fire('Error', 'Password must contain at least one uppercase letter!', 'error');
+      console.log("Password must contain at least one uppercase letter!");
+      return;
+    }
 
     console.log("Registering with username: " + this.credentials.username);
     if (await this.registerService.register(this.credentials)) {
