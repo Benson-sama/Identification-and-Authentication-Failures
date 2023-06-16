@@ -1,0 +1,20 @@
+Bug Report Identification and Authentication Failures
+
+Name: Onuralp Mete
+
+
+Beschreibung des Fehlers:
+Aktuell besteht die Möglichkeit, Passwörter ohne jegliche Regeln wie Mindestlänge, Zahlen und Großbuchstaben zu registrieren und zu verwenden. Dies führt zu potenziellen Identifikations- und Authentifizierungsproblemen, da Benutzer kurze und schwache Passwörter verwenden können. Ein solches Vorgehen stellt ein Sicherheitsrisiko dar und ermöglicht es potenziellen Angreifern, leicht auf Konten zuzugreifen, indem sie schwache Passwörter erraten oder Brute-Force-Angriffe durchführen.
+
+
+Erwartetes Verhalten:
+Das System sollte beim Registriervorgang strengere Regeln zur Passwortfestlegung implementieren. Benutzer sollten dazu angehalten werden, Passwörter zu wählen, die ausreichend lang und komplex sind, um die Sicherheit ihrer Konten zu gewährleisten. Bei der Eingabe von Passwörtern, die den Vorschriften nicht entsprechen, sollte eine Fehlermeldung angezeigt werden, die den Benutzer dazu auffordert, ein stärkeres Passwort zu wählen.
+
+
+Aktuelles Verhalten:
+Das System akzeptiert beim Registrierungsvorgang jegliches Passwort unabhängig von der Stärke des Passwortes.
+
+
+Gemachte Änderungen:
+Passwort wird beim Registrieren, bevor der User in der Datenbank angelegt wird, auf Länge, enthaltene Zahl und enthaltene Großbuchstaben überprüft. 
+
