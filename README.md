@@ -1,3 +1,8 @@
+# Onuralp Mete Bug Report
+
+[Bug Report Text File](BugReportIdentificationAndAuthentication_OnuralpMete.txt)
+
+
 # Identification and Authentication Failures
 > Previously known as Broken Authentication, this category slid down from the second position and now includes Common Weakness Enumerations (CWEs) related to identification failures. Notable CWEs included are CWE-297: Improper Validation of Certificate with Host Mismatch, CWE-287: Improper Authentication, and CWE-384: Session Fixation.
 
