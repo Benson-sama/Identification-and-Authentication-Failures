@@ -156,7 +156,7 @@ namespace WebAPI.Controllers
             }
             else
             {
-                var user = _context.Users.Where(u => u.Username == userObj.Username).FirstOrDefault();
+                var user = _context.Users.Where(u => (u.Username == userObj.Username) || (u.Email == userObj.Email)).FirstOrDefault();
 
                 if (user == null)
                 {
@@ -170,10 +170,11 @@ namespace WebAPI.Controllers
                 }
                 else
                 {
+                    
                     return NotFound(new
                     {
                         StatusCode = 404,
-                        Message = "Username already taken",
+                        Message = "Username already taken or email already exists",
                     });
                 }
             }
