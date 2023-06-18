@@ -1,0 +1,27 @@
+.otp-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+ng-otp-input {
+  display: flex;
+}
+
+.ng-otp-input {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.ng-otp-input.ng-otp-input-disabled {
+  background-color: #f0f0f0;
+}
+
+.ng-otp-input.ng-otp-input-invalid {
+  border-color: red;
+}
