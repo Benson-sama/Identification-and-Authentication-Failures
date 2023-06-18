@@ -7,8 +7,8 @@ import { Credentials } from "../models/credentials";
   providedIn: "root",
 })
 export class RegisterService {
-  private readonly API_URL = "http://localhost:";
-  private readonly PORT = "5265";
+  private readonly API_URL = "https://localhost:";
+  private readonly PORT = "7237";
   private readonly LOGIN_ENDPOINT = "/api/Users/register";
 
   constructor(private http: HttpClient) {}
