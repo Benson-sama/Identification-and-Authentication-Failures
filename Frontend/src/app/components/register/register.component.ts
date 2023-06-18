@@ -64,11 +64,8 @@ export class RegisterComponent {
   constructor(private registerService: RegisterService, private router: Router) { }
 
   async OnSubmit() {
-    if (this.credentials.username === "" || this.credentials.password === "") {
-      Swal.fire('Error', 'Credentials cannot be empty!', 'error');
-      console.log("Credentials cannot be empty!");
+    if (!this.AreCredentialsValid()) 
       return;
-    }
 
     console.log("Registering with username: " + this.credentials.username);
     if (await this.registerService.register(this.credentials)) {
@@ -79,5 +76,23 @@ export class RegisterComponent {
       Swal.fire('Error', 'Username is already taken!', 'error');
       console.log("Successfully registered!")
     }
+  }
+
+  async AreCredentialsValid() {
+    if (this.credentials.username === "" || this.credentials.password === "") {
+      Swal.fire('Error', 'Credentials cannot be empty!', 'error');
+      console.log("Credentials cannot be empty!");
+      return false;
+    }
+
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{}[\]|\\:;'",.<>/?]).{12,}$/;
+
+    if (!passwordRegex.test(this.credentials.password)) {
+      Swal.fire('Error', 'Password is weak! Make sure it contains at least 1 capital letter, 1 small letter, 1 symobl, 1 digit, and is 12 characters long!', 'error');
+      console.log("Weak password given.");
+      return false;
+    }
+
+    return true;
   }
 }
